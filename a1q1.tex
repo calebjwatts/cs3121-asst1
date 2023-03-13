@@ -1,0 +1,78 @@
+\documentclass{article}
+
+\usepackage[printqrbox=false,printhint=true,printanswer=true,printmarkingguide=false]{unswalgos}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shapes,fit}
+\usepackage{tkz-fct}
+\usepackage{wrapfig}
+\usepackage{subfig}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{booktabs,multicol,multirow}
+\usepackage{wasysym}
+\usepackage{tcolorbox}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\NAND}{NAND}
+\DeclareMathOperator{\AND}{AND}
+\DeclareMathOperator{\OR}{OR}
+\DeclareMathOperator{\NOT}{NOT}
+
+\usepackage{xspace}
+
+\fancyfoot[L]{\leftmark}
+\fancyfoot[R]{\rightmark}
+
+% This enables new paragraphs without indentation
+\usepackage[parfill]{parskip}
+
+\newcommand{\sem}{23T1}
+\newcommand{\semester}{Term 1, 2023}
+\SubjectNo{COMP3121/9101}
+\newcommand{\taskname}{Assignment 1, Question 1}
+\Institution{Caleb Watts, z5360175} % Replace this with your name and zID
+
+
+\begin{document}
+
+\setcounter{question}{0}
+
+\begin{Question}
+You have recently been hired to work for a large social media company. The company has staff shortages due to a recent firing spree, and you have been tasked with designing the recommendation algorithm used on the front page! After thinking for several days, you have figured out a way to measure a user's popularity, and now need to design an efficient algorithm to calculate it.
+
+For a given user with \(n\) posts, you have access to an integer array \(V = [v_1, v_2, \dots, v_n]\), where \(v_i\) is the number of views the user's \(i\textsuperscript{th}\) post has in thousands. Since these view counts are used to order posts on a user's profile page, they are already sorted, in \emph{descending} order. The popularity of a user is the largest value of \(p\) such that the user has at least \(p\) posts that each have at least \(p\) thousand views.
+
+For example, suppose a user has \(n = 6\) posts, and a view count array \(V = [7, 6, 5, 4, 4, 1]\). Then they have at least 4 posts each with at least 4,000 views (indeed, they have five such posts), so \(p = 4\) satisfies the criterion. You can confirm that the criterion is also satisfied for \(p = 3\), but it is not satisfied for \(p = 5\) since there are only three qualifying posts. The user's popularity index is in fact 4, because \(p = 4\) is the largest value for which the criterion holds.
+
+\begin{Subquestion}
+\textbf{[7 marks]} Before you are given full access to the codebase, you need to try and implement your new popularity measure on top of the existing code. Given the integer \(n\) and the integer array \(V\) for a user as well as an integer value \(p \le n\), you must determine whether that user's popularity is \emph{at least} \(p\). This snippet of code runs every single time the page gets loaded, so it needs to be very efficient.
+
+Design an algorithm that runs in \(O(1)\) time and checks whether a user's popularity is at least \(p\).
+
+\begin{answer}
+
+1. If \(V\) is empty and \(p > 0\), return FALSE. \newline
+2. If average of elements \(V_0 \dots V_{p-1} < p\), return FALSE, else TRUE.
+
+
+This algorithm runs in O(1) time because it only takes constant time to access the first \(p\) elements of \(V\), and the average of \(p\) elements is also constant time.
+
+\end{answer}
+\end{Subquestion}
+
+\begin{Subquestion}
+\textbf{[13 marks]} The code you modified was written by a now-fired intern, and would simply try every value of \(p\) until it found one that worked, for every user. Now that the company has grown to serve millions of users, your boss has demanded that you develop a faster algorithm. Given the integer \(n\) and the integer array \(V\) for a user, you must efficiently compute the user's popularity index \(p\). 
+
+Design an algorithm that runs in \(O(\log{n})\) time and computes $p$ for a given user.
+
+\begin{answer}
+Your answer here.
+\end{answer}
+\end{Subquestion}
+\end{Question}
+
+\end{document}

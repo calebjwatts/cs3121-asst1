@@ -1,0 +1,86 @@
+\documentclass{article}
+
+\usepackage[printqrbox=false,printhint=true,printanswer=true,printmarkingguide=false]{unswalgos}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shapes,fit}
+\usepackage{tkz-fct}
+\usepackage{wrapfig}
+\usepackage{subfig}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{booktabs,multicol,multirow}
+\usepackage{wasysym}
+\usepackage{tcolorbox}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\NAND}{NAND}
+\DeclareMathOperator{\AND}{AND}
+\DeclareMathOperator{\OR}{OR}
+\DeclareMathOperator{\NOT}{NOT}
+
+\usepackage{xspace}
+
+\fancyfoot[L]{\leftmark}
+\fancyfoot[R]{\rightmark}
+
+% This enables new paragraphs without indentation
+\usepackage[parfill]{parskip}
+
+\newcommand{\sem}{23T1}
+\newcommand{\semester}{Term 1, 2023}
+\SubjectNo{COMP3121/9101}
+\newcommand{\taskname}{Assignment 1, Question 2}
+\Institution{Caleb Watts, z5360175} % Replace this with your name and zID
+
+
+\begin{document}
+
+\setcounter{question}{1}
+
+\begin{Question}
+DAC Investments is a finance company that has a team of $k$ bankers. The $i$th banker manages $M[i]$ dollars worth of investments, and has a performance rating of $P[i]$. The bankers are indexed in \emph{decreasing} order of performance rating.
+
+The profitability of DAC Investments is given by \[(M[1] + \ldots + M[k]) \times \min(P[1],\ldots, P[k]).\]
+
+For example, if $M = [4,8,2,7,1]$ and $P = [9,6,3,3,2]$, then the profitability is \[ (4+8+2+7+1)\times \min(9, 6, 3, 3, 2) = 22\times 2 = 44. \]
+
+\begin{Subquestion}
+\textbf{[2 marks]} DAC Investments has recently received a letter from the CEO, advising them that his nephew is looking for work. Although the nephew's performance rating is no better than anyone in the team, DAC Investments have been \emph{strongly encouraged} to hire him in place of one of the current team members.
+
+You are given integer arrays $M[1..(k+1)]$ and $P[1..(k+1)]$, representing the amounts managed and performance ratings respectively. In each array, the first $k$ entries are for the current team members and the last entry is for the CEO's nephew. The performance ratings are listed in decreasing order.
+
+In order to hire the CEO's nephew, DAC Investments will have to remove one of their bankers. How should they select which banker to remove, while maximising profitability?
+
+\begin{answer}
+Your answer here.
+\end{answer}
+\end{Subquestion}
+
+For the remaining subquestions, suppose DAC Investments has been acquired by a large bank. There are now $n$ employees available, so you are given integer arrays $M[1..n]$ and $P[1..n]$, the latter of which is again in decreasing order. From these $n$ candidates, DAC Investments would like to select $k$ team members.
+
+\begin{Subquestion}\label{investment-nk}
+\textbf{[10 marks]} Design an algorithm that runs in $O(nk)$ time and determines the set of $k$ employees that maximise the profitability of DAC Investments.
+
+\begin{answer}
+Your answer here.
+\end{answer}
+\end{Subquestion}
+
+\begin{Subquestion}\label{investment-nlogk}
+\textbf{[8 marks]} Design an algorithm that runs in $O(n \log k)$ time and determines the set of $k$ employees that maximise profitability.
+
+\begin{answer}
+Your answer here.
+\end{answer}
+\end{Subquestion}
+
+\begin{clar}
+You may choose to skip \ref{investment-nk}, in which case we will mark your submission for \ref{investment-nlogk} as if it was submitted for \ref{investment-nk} also.
+\end{clar}
+\end{Question}
+
+\end{document}
